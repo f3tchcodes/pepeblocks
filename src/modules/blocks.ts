@@ -2,7 +2,7 @@ import { PepeClient } from "#client/pepeClient";
 import { type BlockResponse } from "#interfaces/blocks";
 
 export class PepeBlocks {
-    public client: PepeClient;
+    private client: PepeClient;
 
     constructor(client: PepeClient) {
         this.client = client;
