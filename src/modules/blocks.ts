@@ -7,6 +7,7 @@ export class PepeBlocks {
         this.client = client;
     }
 
+    // get total count of blocks
     public async count(): Promise<number> {
         const res = await fetch(`${this.client.baseUrl}/api/getblockcount`);
 
