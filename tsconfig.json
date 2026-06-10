@@ -20,6 +20,12 @@
     "declaration": true,
     "declarationMap": true,
 
+    "baseUrl": "./",
+    "ignoreDeprecations": "6.0",
+    "paths": {
+        "#interfaces/*": ["src/interfaces/*.js"]
+    },
+
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
