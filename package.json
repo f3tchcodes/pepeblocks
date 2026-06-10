@@ -4,10 +4,25 @@
   "description": "JavaScript and TypeScript SDK for interacting with the Pepecoin (PEP) blockchain through the PepeBlocks API.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "run": "tsc && node dist/index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "pepecoin",
+    "pep",
+    "pepeblocks",
+    "crypto",
+    "blockchain",
+    "typescript",
+    "sdk"
+  ],
+  "author": "f3tch",
   "license": "MIT",
-  "type": "commonjs"
+  "type": "commonjs",
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
 }
