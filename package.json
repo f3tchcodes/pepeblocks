@@ -21,7 +21,7 @@
   ],
   "author": "f3tch",
   "license": "MIT",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
     "typescript": "^6.0.3"
   }
