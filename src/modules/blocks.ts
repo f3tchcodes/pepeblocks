@@ -7,7 +7,10 @@ export class PepeBlocks {
         this.client = client;
     }
 
-    // get total count of blocks
+    /**
+     * Returns the count of all blocks on the blockchain
+     * @returns number
+     */
     public async count(): Promise<number> {
         const res = await this.client._getReq("/api/getblockcount");
         
@@ -23,7 +26,11 @@ export class PepeBlocks {
         return count;
     }
 
-    // get hash from block index
+    /**
+     * Takes in index of a block and returns it's hash
+     * @param index number
+     * @returns string
+     */
     public async getHash(index: number): Promise<string> {
         const res = await this.client._getReq(`/api/getblockhash?index=${index}`);
 
