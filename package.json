@@ -27,6 +27,8 @@
   },
   "imports": {
         "#interfaces/*": "./dist/interfaces/*.js",
-        "#client": "./dist/client/*.js"
+        "#client": "./dist/client/*.js",
+        "#utils": "./dist/utils/*.js",
+        "#modules": "./dist/modules/*.js"
     }
 }

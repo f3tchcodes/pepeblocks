@@ -24,7 +24,9 @@
     "ignoreDeprecations": "6.0",
     "paths": {
         "#interfaces/*": ["src/interfaces/*.js"],
-        "#client/*": ["src/client/*.js"]
+        "#client/*": ["src/client/*.js"],
+        "#utils/*": ["src/utils/*.js"],
+        "#modules/*": ["src/modules/*.js"]
     },
 
     // Stricter Typechecking Options
