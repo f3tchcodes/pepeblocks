@@ -3,7 +3,16 @@ import { PepeBlocks } from "#modules/blocks";
 import { getReq } from "#utils/requests"; 
 
 export class PepeClient {
+    /**
+     * The base URL for the API
+     * @default https://pepeblocks.com/
+     */
     public baseUrl: string;
+
+    /**
+     * Methods for blocks in the blockchain
+     * @class
+     */
     public blocks: PepeBlocks;
     
     constructor(options: ClientOptions = {}) {
@@ -19,7 +28,6 @@ export class PepeClient {
 
     /** 
      * Internal get request handler used by other modules
-     * 
      * @internal 
      */
     public readonly _getReq = (path: string) => getReq(this, path);
