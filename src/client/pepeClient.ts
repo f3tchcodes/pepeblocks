@@ -8,7 +8,7 @@ export class PepeClient {
      * The base URL for the API
      * @default https://pepeblocks.com/
      */
-    public baseUrl: string;
+    public readonly baseUrl: string;
 
     /**
      * Methods for blocks in the blockchain
