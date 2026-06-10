@@ -1,5 +1,6 @@
 import { type ClientOptions } from "#interfaces/clientOptions";
 import { PepeBlocks } from "#modules/blocks";
+import { PepeTransactions } from "#modules/transactions";
 import { getReq } from "#utils/requests"; 
 
 export class PepeClient {
@@ -14,6 +15,12 @@ export class PepeClient {
      * @class
      */
     public blocks: PepeBlocks;
+
+    /**
+     * Methods for transactions in the blockchain
+     * @class
+     */
+    public transactions: PepeTransactions;
     
     constructor(options: ClientOptions = {}) {
         // if baseUrl is given when initiating the object, use that
@@ -24,6 +31,7 @@ export class PepeClient {
         // attaching methods to the object
         this.baseUrl = chosenUrl.endsWith('/') ? chosenUrl.slice(0, -1) : chosenUrl;
         this.blocks = new PepeBlocks(this);
+        this.transactions = new PepeTransactions(this);
     }
 
     /** 
