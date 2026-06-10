@@ -26,6 +26,7 @@
     "typescript": "^6.0.3"
   },
   "imports": {
-        "#interfaces/*": "./dist/interfaces/*.js"
+        "#interfaces/*": "./dist/interfaces/*.js",
+        "#client": "./dist/client/*.js"
     }
 }

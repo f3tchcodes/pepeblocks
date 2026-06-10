@@ -23,7 +23,8 @@
     "baseUrl": "./",
     "ignoreDeprecations": "6.0",
     "paths": {
-        "#interfaces/*": ["src/interfaces/*.js"]
+        "#interfaces/*": ["src/interfaces/*.js"],
+        "#client/*": ["src/client/*.js"]
     },
 
     // Stricter Typechecking Options
