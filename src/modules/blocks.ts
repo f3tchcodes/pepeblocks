@@ -22,4 +22,11 @@ export class PepeBlocks {
 
         return count;
     }
+
+    // get hash from block index
+    public async getHash(index: number): Promise<string> {
+        const res = await this.client._getReq(`/api/getblockhash?index=${index}`);
+
+        return res.text();
+    }
 }
