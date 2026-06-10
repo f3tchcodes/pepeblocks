@@ -1,4 +1,5 @@
 import { type ClientOptions } from "#interfaces/clientOptions";
+import { getBlockCount } from "#modules/APICalls";
 
 export class PepeClient {
     public baseUrl: string;
@@ -10,4 +11,6 @@ export class PepeClient {
         const chosenUrl = options.baseUrl || defaultUrl;
         this.baseUrl = chosenUrl.endsWith('/') ? chosenUrl.slice(0, -1) : chosenUrl;
     }
+
+    public getBlockCount = () => getBlockCount(this);
 }
