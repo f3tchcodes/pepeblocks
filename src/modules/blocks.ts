@@ -9,12 +9,7 @@ export class PepeBlocks {
 
     // get total count of blocks
     public async count(): Promise<number> {
-        const res = await fetch(`${this.client.baseUrl}/api/getblockcount`);
-
-        // if response status is not 200, throw error
-        if (!res.ok) {
-            throw new Error(`Request failed with the status code: ${res.status}`);
-        }
+        const res = await this.client._getReq("/api/getblockcount");
         
         // convert text into number
         const text = await res.text();

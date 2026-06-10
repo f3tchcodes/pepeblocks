@@ -1,5 +1,6 @@
 import { type ClientOptions } from "#interfaces/clientOptions";
 import { PepeBlocks } from "#modules/blocks";
+import { getReq } from "#utils/requests"; 
 
 export class PepeClient {
     public baseUrl: string;
@@ -15,4 +16,11 @@ export class PepeClient {
         this.baseUrl = chosenUrl.endsWith('/') ? chosenUrl.slice(0, -1) : chosenUrl;
         this.blocks = new PepeBlocks(this);
     }
+
+    /** 
+     * Internal get request handler used by other modules
+     * 
+     * @internal 
+     */
+    public readonly _getReq = (path: string) => getReq(this, path);
 }
