@@ -1,7 +1,7 @@
 # pepeblocks
 JavaScript and TypeScript SDK for interacting with the Pepecoin (PEP) blockchain through the Pepeblocks API.
 
-# Installing
+## Installing
 - Requires at least Node.js v18. Version 21+ recommended.
 - This module relies on the Node.js native [`fetch()`](https://nodejs.org/docs/latest-v22.x/api/globals.html#fetch)
 - This module is [ESM Only](https://nodejs.org/api/esm.html)
@@ -10,7 +10,7 @@ JavaScript and TypeScript SDK for interacting with the Pepecoin (PEP) blockchain
 $ npm install pepeblocks
 ```
 
-# Usage
+## Usage
 ```
 import { Pepeblocks } from "pepeblocks";
 
