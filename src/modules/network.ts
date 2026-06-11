@@ -26,6 +26,10 @@ export class PepeNetwork {
         return difficulty;
     }
 
+    /**
+     * Fetches the current hashrate of the entire network.
+     * @returns The current hashrate as a number.
+     */
     public async hashrate(): Promise<number> {
         const res = await this.client._getReq(`/api/getnetworkhashps`);
 
@@ -39,6 +43,5 @@ export class PepeNetwork {
         }
 
         return hashrate;
-
     }
 }
