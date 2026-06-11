@@ -13,7 +13,7 @@ export async function getReq(client: PepeClient, path: string): Promise<Response
 }
 
 export async function getReqNumber(client: PepeClient, path: string): Promise<number> {
-    const res = await client._getReq(`${client.baseUrl}${path}`);
+    const res = await client._getReq(`${path}`);
 
     // convert text into number
     const text = await res.text();
