@@ -23,7 +23,6 @@ export class PepeBlocks {
      */
     public async getHash(height: number): Promise<string> {
         const res = await this.client._getReq(`/api/getblockhash?index=${height}`);
-
         return res.text()
     }
 
@@ -34,9 +33,7 @@ export class PepeBlocks {
      */
     public async getByHash(hash: string): Promise<BlockResponse> {
         const res = await this.client._getReq(`/api/getblock?hash=${hash}`);
-        const parsedJson = (await res.json()) as BlockResponse;
-
-        return parsedJson;
+        return (await res.json()) as BlockResponse;
     }
 
     /**
@@ -47,8 +44,6 @@ export class PepeBlocks {
     public async getByHeight(height: number) {
         const hash = await this.getHash(height);
         const res = await this.client._getReq(`/api/getblock?hash=${hash}`);
-        const parsedJson = (await res.json()) as BlockResponse;
-
-        return parsedJson;
+        return (await res.json()) as BlockResponse;
     }
 }

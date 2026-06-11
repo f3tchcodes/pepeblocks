@@ -19,9 +19,7 @@ export class PepeTransactions {
      */
     public async get(txid: string): Promise<TransactionResponse> {
         const res = await this.client._getReq(`/api/v2/tx/${txid}`);
-        const parsedJson = (await res.json()) as TransactionResponse;
-
-        return parsedJson;
+        return (await res.json()) as TransactionResponse;
     }
 
     /**
@@ -31,9 +29,7 @@ export class PepeTransactions {
      */
     public async getDecoded(txid: string): Promise<RawJSONTransactionResponse> {
         const res = await this.client._getReq(`/api/getrawtransaction?txid=${txid}&decrypt=1`);
-        const parsedJson = (await res.json()) as RawJSONTransactionResponse;
-
-        return parsedJson;
+        return (await res.json()) as RawJSONTransactionResponse;
     }
 
     /**
@@ -43,7 +39,6 @@ export class PepeTransactions {
      */
     public async getRaw(txid: string): Promise<string> {
         const res = await this.client._getReq(`/api/getrawtransaction?txid=${txid}&decrypt=0`);
-
         return await res.text();
     }
 
@@ -53,8 +48,6 @@ export class PepeTransactions {
      */
     public async getMempool(): Promise<RawMempoolResponse> {
         const res = await this.client._getReq(`/api/getrawmempool?verbose=1`);
-        const parsedJson = (await res.json()) as RawMempoolResponse;
-
-        return parsedJson;
+        return (await res.json()) as RawMempoolResponse;
     }
 }

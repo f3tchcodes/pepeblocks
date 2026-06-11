@@ -38,8 +38,6 @@ export class PepeNetwork {
      */
     public async status(): Promise<SystemStatusResponse> {
         const res = await this.client._getReq(`/api/status`);
-        const parsedJson = (await res.json()) as SystemStatusResponse;
-
-        return parsedJson;
+        return (await res.json()) as SystemStatusResponse;
     }
 }
