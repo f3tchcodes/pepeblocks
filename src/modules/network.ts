@@ -12,18 +12,7 @@ export class PepeNetwork {
      * @returns The difficulty value as a number.
      */
     public async difficult(): Promise<number> {
-        const res = await this.client._getReq(`/api/getdifficulty`);
-
-        // convert text into number
-        const text = await res.text();
-        const difficulty = Number(text);
-
-        // if it's not a number, throw error
-        if (text === "" || Number.isNaN(difficulty)) {
-            throw new Error(`Invalid difficulty received: ${text}`);
-        }
-
-        return difficulty;
+        return await this.client._getReqNumber(`/api/getdifficulty`);
     }
 
     /**
@@ -31,18 +20,7 @@ export class PepeNetwork {
      * @returns The current hashrate as a number.
      */
     public async hashrate(): Promise<number> {
-        const res = await this.client._getReq(`/api/getnetworkhashps`);
-
-        // convert text into number
-        const text = await res.text();
-        const hashrate = Number(text);
-
-        // if it's not a number, throw error
-        if (text === "" || Number.isNaN(hashrate)) {
-            throw new Error(`Invalid hashrate received: ${text}`);
-        }
-
-        return hashrate;
+        return await this.client._getReqNumber(`/api/getnetworkhashps`);
     }
 
     /**
@@ -50,17 +28,6 @@ export class PepeNetwork {
      * @returns Number of connections to other nodes.
      */
     public async connections(): Promise<number> {
-        const res = await this.client._getReq(`/api/getconnectioncount`);
-
-        // convert text into number
-        const text = await res.text();
-        const connectionsCount = Number(text);
-
-        // if it's not a number, throw error
-        if (text === "" || Number.isNaN(connectionsCount)) {
-            throw new Error(`Invalid hashrate received: ${text}`);
-        }
-
-        return connectionsCount;
+        return await this.client._getReqNumber(`/api/getconnectioncount`);
     }
 }

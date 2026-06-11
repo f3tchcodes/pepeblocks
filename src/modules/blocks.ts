@@ -13,18 +13,7 @@ export class PepeBlocks {
      * @returns Number of blocks in the blockchain.
      */
     public async count(): Promise<number> {
-        const res = await this.client._getReq("/api/getblockcount");
-        
-        // convert text into number
-        const text = await res.text();
-        const count = Number(text);
-
-        // if it's not a number, throw error
-        if (text === "" ||Number.isNaN(count)) {
-            throw new Error(`Invalid block count received: ${text}`);
-        }
-
-        return count;
+        return await this.client._getReqNumber("/api/getblockcount");
     }
 
     /**
