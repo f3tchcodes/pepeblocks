@@ -55,5 +55,3 @@ The complete SDK documentation containing all parameters, return types, and oper
 
 ## License
 This SDK is licensed under [MIT](LICENSE).
-
-The complete raw API documentation for Pepeblocks can be found at [https://pepeblocks.com/api](https://pepeblocks.com/api).
