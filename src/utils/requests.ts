@@ -13,7 +13,7 @@ export async function getReq(client: PepeClient, path: string): Promise<Response
 }
 
 export async function getReqNumber(client: PepeClient, path: string) {
-    const res = await client._getReq(`/api/getconnectioncount`);
+    const res = await client._getReq(`${client.baseUrl}${path}`);
 
     // convert text into number
     const text = await res.text();
