@@ -44,6 +44,15 @@ export class PepeAddresses {
         return (await res.json()) as AddressBalanceHistoryResponse;
     }
 
+    /**
+     * Lists all blockchain addresses sorted by total coin balance (Rich List).
+     * @param options Configure page and limit.
+     * @returns Object containing an array of addresses sorted by highest to lowest balance.
+     * @example
+     * ```typescript
+     * const richList = await pep.addresses.richlist({ page: 1, limit: 10 });
+     * ```
+     */
     public async richlist(options: AddressListOptions = {}): Promise<AddressListResponse> {
         const page = options.page ?? 1;
         const limit = options.limit ?? 10;
