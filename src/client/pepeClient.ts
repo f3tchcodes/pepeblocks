@@ -29,16 +29,19 @@ export class PepeClient {
 
     /**
      * General methods for network of the pepecoin blockchain.
+     * @class
      */
     public network: PepeNetwork;
     
     /**
      * General methods for addresses of the pepecoin blockchain.
+     * @class
      */
     public addresses: PepeAddresses;
 
     /**
      * General methods for market of the pepecoin blockchain.
+     * @class
      */
     public market: PepeMarket;
     
