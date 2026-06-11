@@ -48,7 +48,7 @@ export class PepeAddresses {
     /**
      * Generates a QR code image URL or fetches its raw image data for the wallet address.
      * @param address The address of a wallet.
-     * @param options Configure raw or link.
+     * @param options Configure raw image or link of an image options.
      * @example
      * const url = await pep.addresses.qr("Pps2nuE...");
      * const rawPng = await pep.addresses.qr("Pps2nuE...", { raw: true });
