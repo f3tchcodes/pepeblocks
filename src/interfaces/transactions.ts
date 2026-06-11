@@ -24,7 +24,7 @@ export interface TxVin {
 }
 
 // putting everything together
-export interface RawTransactionResponse {
+export interface JSONTransactionResponse {
   hex: string;
   txid: string;
   hash: string;
