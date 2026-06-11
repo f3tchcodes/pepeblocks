@@ -11,3 +11,18 @@ export async function getReq(client: PepeClient, path: string): Promise<Response
     // return the response
     return res;
 }
+
+export async function getReqNumber(client: PepeClient, path: string) {
+    const res = await client._getReq(`/api/getconnectioncount`);
+
+    // convert text into number
+    const text = await res.text();
+    const num = Number(text);
+
+    // if it's not a number, throw error
+    if (text === "" || Number.isNaN(num)) {
+        throw new Error(`Invalid response received (NaN/empty): ${text}`);
+    }
+
+    return num;
+}

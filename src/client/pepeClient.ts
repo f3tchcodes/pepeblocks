@@ -4,7 +4,7 @@ import { PepeBlocks } from "#modules/blocks";
 import { PepeTransactions } from "#modules/transactions";
 import { PepeNetwork } from "#modules/network";
 
-import { getReq } from "#utils/requests"; 
+import { getReq, getReqNumber } from "#utils/requests"; 
 
 export class PepeClient {
     /**
@@ -39,15 +39,21 @@ export class PepeClient {
 
         // attaching methods to the object
         this.baseUrl = chosenUrl.endsWith('/') ? chosenUrl.slice(0, -1) : chosenUrl;
-        
+
         this.blocks = new PepeBlocks(this);
         this.transactions = new PepeTransactions(this);
         this.network = new PepeNetwork(this);
     }
 
     /** 
-     * Internal get request handler used by other modules.
+     * Internal GET request handler used by other modules.
      * @internal 
      */
     public readonly _getReq = (path: string) => getReq(this, path);
+
+    /** 
+     * Internal GET request handler for number responses used by other modules.
+     * @internal 
+     */
+    public readonly _getReqNumber = (path: string) => getReqNumber(this, path);
 }
