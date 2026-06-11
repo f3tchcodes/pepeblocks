@@ -19,4 +19,15 @@ export class PepeTransactions {
 
         return parsedJson;
     }
+
+    /**
+     * Fetches the encoded string of the transaction via transaction ID.
+     * @param txid The transaction ID string.
+     * @returns Serialized hex string of the transaction.
+     */
+    public async getRaw(txid: string): Promise<string> {
+        const res = await this.client._getReq(`/api/getrawtransaction?txid=${txid}&decrypt=0`);
+
+        return await res.json();
+    }
 }
