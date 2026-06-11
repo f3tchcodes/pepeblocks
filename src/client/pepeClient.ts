@@ -3,9 +3,9 @@ import { type ClientOptions } from "#interfaces/clientOptions";
 import { PepeBlocks } from "#modules/blocks";
 import { PepeTransactions } from "#modules/transactions";
 import { PepeNetwork } from "#modules/network";
+import { PepeAddresses } from "#modules/addresses";
 
 import { getReq, getReqNumber } from "#utils/requests"; 
-import { PepeAddresses } from "#modules/addresses";
 
 export class PepeClient {
     /**
