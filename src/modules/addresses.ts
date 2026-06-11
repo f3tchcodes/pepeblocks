@@ -2,7 +2,9 @@ import { type PepeClient } from "#client/pepeClient";
 import { 
     type AddressProfileResponse,
     type AddressUTXOsResponse,
-    type AddressBalanceHistoryResponse
+    type AddressBalanceHistoryResponse,
+    type AddressListResponse,
+    type AddressListOptions
 } from "#interfaces/addresses";
 
 export class PepeAddresses {
@@ -40,5 +42,17 @@ export class PepeAddresses {
     public async balancehistory(address: string): Promise<AddressBalanceHistoryResponse> {
         const res = await this.client._getReq(`/api/v2/balancehistory/${address}`);
         return (await res.json()) as AddressBalanceHistoryResponse;
+    }
+
+    public async richlist(options: AddressListOptions = {}): Promise<AddressListResponse> {
+        const page = options.page ?? 1;
+        const limit = options.limit ?? 10;
+
+        if (limit > 100) {
+            throw new RangeError(`Pepeblock SDK Error: The maximum allowed value for 'limit' is 100. Received: ${limit}`);
+        }
+
+        const res = await this.client._getReq(`/api/v3/addresses?page=${page}&limit=${limit}`);
+        return (await res.json()) as AddressListResponse;
     }
 }

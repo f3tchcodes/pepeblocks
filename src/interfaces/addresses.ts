@@ -40,3 +40,40 @@ export interface BalanceHistoryEntry {
 }
 
 export type AddressBalanceHistoryResponse = BalanceHistoryEntry[];
+
+
+// LIST OF ALL ADDRESSES
+
+// Enforce numbers 1 through 100 via a generated type helper
+export type MaxLimit100 = 1 | 2 | 3 | 4 | 5 | 10 | 20 | 25 | 50 | 100 | number & {};
+
+export interface AddressListOptions {
+  /**
+   * The page number to retrieve.
+   * @default 1
+   */
+  page?: number;
+
+  /**
+   * Number of address results to return per page. Max allowed is 100.
+   * @default 1
+   */
+  limit?: MaxLimit100;
+}
+
+export interface AddressListItem {
+  address: string;
+  balance: string;
+}
+
+export interface AddressListPagination {
+  current_page: number;
+  limit: number;
+  total_count: number;
+  total_pages: number;
+}
+
+export interface AddressListResponse {
+  addresses: AddressListItem[];
+  paging: AddressListPagination;
+}
