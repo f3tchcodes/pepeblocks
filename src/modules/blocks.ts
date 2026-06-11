@@ -28,8 +28,8 @@ export class PepeBlocks {
     }
 
     /**
-     * Takes in index of a block and returns it's hash.
-     * @param index The block index.
+     * Takes in height of a block and returns it's hash.
+     * @param index The block height.
      * @returns hash value of the block.
      */
     public async getHash(index: number): Promise<string> {
