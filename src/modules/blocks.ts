@@ -41,7 +41,7 @@ export class PepeBlocks {
      * @param height The block height.
      * @returns Information about the block.
      */
-    public async getByHeight(height: number) {
+    public async getByHeight(height: number): Promise<BlockResponse> {
         const hash = await this.getHash(height);
         const res = await this.client._getReq(`/api/getblock?hash=${hash}`);
         return (await res.json()) as BlockResponse;
