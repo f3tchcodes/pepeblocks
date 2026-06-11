@@ -1,4 +1,5 @@
 import { type PepeClient } from "#client/pepeClient";
+import { type MarketSummaryResponse } from "#interfaces/market";
 
 export class PepeMarket {
     private client: PepeClient;
@@ -29,5 +30,14 @@ export class PepeMarket {
      */
     public async currentvolume(): Promise<number> {
         return await this.client._getReqNumber(`/ext/getcurrentvolume`);
+    }
+
+    /**
+     * Fetches details about the market summary from the API.
+     * @returns An object containing current market summary.
+     */
+    public async summary(): Promise<MarketSummaryResponse> {
+        const res = await this.client._getReq(`/ext/getsummary`);
+        return (await res.json()) as MarketSummaryResponse;
     }
 }
