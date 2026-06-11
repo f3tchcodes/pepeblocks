@@ -13,7 +13,7 @@ export class PepeMarket {
      * @returns Current money supply number.
      */
     public async moneysupply(): Promise<number> {
-        return await this.client._getReqNumber(`/ext/getmoneysupply`);
+        return await this.client._getReq(`/ext/getmoneysupply`);
     }
 
     /**
@@ -21,7 +21,7 @@ export class PepeMarket {
      * @returns Current price number.
      */
     public async price(): Promise<number> {
-        return await this.client._getReqNumber(`/ext/getcurrentprice`);
+        return await this.client._getReq(`/ext/getcurrentprice`);
     }
 
     /**
@@ -29,7 +29,7 @@ export class PepeMarket {
      * @returns Current volume number.
      */
     public async currentvolume(): Promise<number> {
-        return await this.client._getReqNumber(`/ext/getcurrentvolume`);
+        return await this.client._getReq(`/ext/getcurrentvolume`);
     }
 
     /**
@@ -37,7 +37,6 @@ export class PepeMarket {
      * @returns An object containing current market summary.
      */
     public async summary(): Promise<MarketSummaryResponse> {
-        const res = await this.client._getReq(`/ext/getsummary`);
-        return (await res.json()) as MarketSummaryResponse;
+        return await this.client._getReq(`/ext/getsummary`);
     }
 }

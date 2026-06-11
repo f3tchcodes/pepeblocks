@@ -13,7 +13,7 @@ export class PepeBlocks {
      * @returns Number of blocks in the blockchain.
      */
     public async count(): Promise<number> {
-        return await this.client._getReqNumber("/api/getblockcount");
+        return await this.client._getReq("/api/getblockcount");
     }
 
     /**
@@ -22,8 +22,7 @@ export class PepeBlocks {
      * @returns Hash value of the block.
      */
     public async getHash(height: number): Promise<string> {
-        const res = await this.client._getReq(`/api/getblockhash?index=${height}`);
-        return res.text()
+        return await this.client._getReq(`/api/getblockhash?index=${height}`);
     }
 
     /**
@@ -32,8 +31,7 @@ export class PepeBlocks {
      * @returns Information about the block.
      */
     public async getByHash(hash: string): Promise<BlockResponse> {
-        const res = await this.client._getReq(`/api/getblock?hash=${hash}`);
-        return (await res.json()) as BlockResponse;
+        return await this.client._getReq(`/api/getblock?hash=${hash}`);
     }
 
     /**
@@ -43,7 +41,6 @@ export class PepeBlocks {
      */
     public async getByHeight(height: number): Promise<BlockResponse> {
         const hash = await this.getHash(height);
-        const res = await this.client._getReq(`/api/getblock?hash=${hash}`);
-        return (await res.json()) as BlockResponse;
+        return await this.client._getReq(`/api/getblock?hash=${hash}`);
     }
 }

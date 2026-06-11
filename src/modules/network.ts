@@ -13,7 +13,7 @@ export class PepeNetwork {
      * @returns The difficulty value as a number.
      */
     public async difficult(): Promise<number> {
-        return await this.client._getReqNumber(`/api/getdifficulty`);
+        return await this.client._getReq(`/api/getdifficulty`);
     }
 
     /**
@@ -21,7 +21,7 @@ export class PepeNetwork {
      * @returns The current hashrate as a number.
      */
     public async hashrate(): Promise<number> {
-        return await this.client._getReqNumber(`/api/getnetworkhashps`);
+        return await this.client._getReq(`/api/getnetworkhashps`);
     }
 
     /**
@@ -29,7 +29,7 @@ export class PepeNetwork {
      * @returns Number of connections to other nodes.
      */
     public async connections(): Promise<number> {
-        return await this.client._getReqNumber(`/api/getconnectioncount`);
+        return await this.client._getReq(`/api/getconnectioncount`);
     }
 
     /**
@@ -37,7 +37,6 @@ export class PepeNetwork {
      * @returns Object containing system status data.
      */
     public async status(): Promise<SystemStatusResponse> {
-        const res = await this.client._getReq(`/api/status`);
-        return (await res.json()) as SystemStatusResponse;
+        return await this.client._getReq(`/api/status`);
     }
 }

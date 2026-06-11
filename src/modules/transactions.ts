@@ -18,8 +18,7 @@ export class PepeTransactions {
      * @returns Blockbook's transaction response in JSON.
      */
     public async get(txid: string): Promise<TransactionResponse> {
-        const res = await this.client._getReq(`/api/v2/tx/${txid}`);
-        return (await res.json()) as TransactionResponse;
+        return await this.client._getReq(`/api/v2/tx/${txid}`);
     }
 
     /**
@@ -28,8 +27,7 @@ export class PepeTransactions {
      * @returns Fully decoded transaction information in JSON.
      */
     public async getDecoded(txid: string): Promise<RawJSONTransactionResponse> {
-        const res = await this.client._getReq(`/api/getrawtransaction?txid=${txid}&decrypt=1`);
-        return (await res.json()) as RawJSONTransactionResponse;
+        return await this.client._getReq(`/api/getrawtransaction?txid=${txid}&decrypt=1`);
     }
 
     /**
@@ -38,8 +36,7 @@ export class PepeTransactions {
      * @returns Serialized hex string of the transaction.
      */
     public async getRaw(txid: string): Promise<string> {
-        const res = await this.client._getReq(`/api/getrawtransaction?txid=${txid}&decrypt=0`);
-        return await res.text();
+        return await this.client._getReq(`/api/getrawtransaction?txid=${txid}&decrypt=0`);
     }
 
     /**
@@ -47,7 +44,6 @@ export class PepeTransactions {
      * @returns An object of transaction IDs containing their mempool information.
      */
     public async getMempool(): Promise<RawMempoolResponse> {
-        const res = await this.client._getReq(`/api/getrawmempool?verbose=1`);
-        return (await res.json()) as RawMempoolResponse;
+        return await this.client._getReq(`/api/getrawmempool?verbose=1`);
     }
 }

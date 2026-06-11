@@ -21,8 +21,7 @@ export class PepeAddresses {
      * @returns Object containing information about the wallet.
      */
     public async get(address: string): Promise<AddressProfileResponse> {
-        const res = await this.client._getReq(`/api/v2/address/${address}`);
-        return (await res.json()) as AddressProfileResponse;
+        return await this.client._getReq(`/api/v2/address/${address}`);
     }
 
     /**
@@ -31,8 +30,7 @@ export class PepeAddresses {
      * @returns An array of all the unspent transaction outputs of the provided address.
      */
     public async utxos(address: string): Promise<AddressUTXOsResponse> {
-        const res = await this.client._getReq(`/api/v2/utxo/${address}`);
-        return (await res.json()) as AddressUTXOsResponse;
+        return await this.client._getReq(`/api/v2/utxo/${address}`);
     }
 
     /**
@@ -41,8 +39,7 @@ export class PepeAddresses {
      * @returns An array of all the balance changes of the wallet.
      */
     public async balancehistory(address: string): Promise<AddressBalanceHistoryResponse> {
-        const res = await this.client._getReq(`/api/v2/balancehistory/${address}`);
-        return (await res.json()) as AddressBalanceHistoryResponse;
+        return await this.client._getReq(`/api/v2/balancehistory/${address}`);
     }
 
     /**
@@ -58,8 +55,7 @@ export class PepeAddresses {
         const query = `/qr/${address}`;
 
         if (raw) {
-            const res = await this.client._getReq(query);
-            return await res.text();
+            return await this.client._getReq(query);
         } else {
             return `${this.client.baseUrl}${query}`
         }
@@ -82,7 +78,6 @@ export class PepeAddresses {
             throw new RangeError(`Pepeblock SDK Error: The maximum allowed value for 'limit' is 100. Received: ${limit}`);
         }
 
-        const res = await this.client._getReq(`/api/v3/addresses?page=${page}&limit=${limit}`);
-        return (await res.json()) as AddressListResponse;
+        return await this.client._getReq(`/api/v3/addresses?page=${page}&limit=${limit}`);
     }
 }

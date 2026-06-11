@@ -1,6 +1,6 @@
 import { type PepeClient } from "#client/pepeClient";
 
-export async function getReq(client: PepeClient, path: string): Promise<Response> {
+export async function getReq<T>(client: PepeClient, path: string): Promise<T> {
     const res = await fetch(`${client.baseUrl}${path}`);
 
     // if response status is not 200, throw error
@@ -8,21 +8,23 @@ export async function getReq(client: PepeClient, path: string): Promise<Response
         throw new Error(`Request failed with the status code: ${res.status}`);
     }
 
-    // return the response
-    return res;
-}
-
-export async function getReqNumber(client: PepeClient, path: string): Promise<number> {
-    const res = await client._getReq(`${path}`);
-
-    // convert text into number
+    // convert everything to text first
     const text = await res.text();
-    const num = Number(text);
 
-    // if it's not a number, throw error
-    if (text === "" || Number.isNaN(num)) {
-        throw new Error(`Invalid response received (NaN/empty): ${text}`);
+    // check whether or not it's empty
+    if (text.trim() === "") {
+        throw new Error(`Invalid response received (empty body) from the path: ${path}`);
     }
 
-    return num;
+    try {
+        const parsedJSON = JSON.parse(text);
+
+        if (typeof parsedJSON === "number" && Number.isNaN(parsedJSON)) {
+            throw new Error(`Invalid response received (NaN): ${parsedJSON}`)
+        }
+        
+        return parsedJSON as T;
+    } catch {
+        return text as unknown as T;
+    }
 }

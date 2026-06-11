@@ -6,7 +6,7 @@ import { PepeNetwork } from "#modules/network";
 import { PepeAddresses } from "#modules/addresses";
 import { PepeMarket } from "#modules/market";
 
-import { getReq, getReqNumber } from "#utils/requests"; 
+import { getReq } from "#utils/requests"; 
 
 export class PepeClient {
     /**
@@ -66,11 +66,5 @@ export class PepeClient {
      * Internal GET request handler used by other modules.
      * @internal 
      */
-    public readonly _getReq = (path: string) => getReq(this, path);
-
-    /** 
-     * Internal GET request handler for number responses used by other modules.
-     * @internal 
-     */
-    public readonly _getReqNumber = (path: string) => getReqNumber(this, path);
+    public readonly _getReq = <T>(path: string) => getReq<T>(this, path);
 }
