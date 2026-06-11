@@ -1,5 +1,9 @@
 import { type PepeClient } from "#client/pepeClient";
-import { type RawJSONTransactionResponse, type TransactionResponse } from "#interfaces/transactions";
+import { 
+    type RawJSONTransactionResponse, 
+    type TransactionResponse,
+    type RawMempoolResponse
+} from "#interfaces/transactions";
 
 export class PepeTransactions {
     private client: PepeClient;
@@ -41,5 +45,16 @@ export class PepeTransactions {
         const res = await this.client._getReq(`/api/getrawtransaction?txid=${txid}&decrypt=0`);
 
         return await res.text();
+    }
+
+    /**
+     * Fetches detailed information of all the transactions currently in mempool.
+     * @returns An object of transaction IDs containing their mempool information.
+     */
+    public async getMempool(): Promise<RawMempoolResponse> {
+        const res = await this.client._getReq(`/api/getrawmempool?verbose=1`);
+        const parsedJson = (await res.json()) as RawMempoolResponse;
+
+        return parsedJson;
     }
 }

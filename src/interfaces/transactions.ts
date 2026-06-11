@@ -1,4 +1,4 @@
-// Raw JSON transaction response
+// RAW JSON TRANSACTION RESPONSE
 
 export interface TxScriptPubKey {
   asm: string;
@@ -43,7 +43,8 @@ export interface RawJSONTransactionResponse {
 }
 
 
-// Blockbook's transaction response
+// BLOCKBOOK'S TRANSACTION RESPONSE
+
 export interface TransactionVin {
   n: number;
   isAddress: boolean;
@@ -81,4 +82,28 @@ export interface TransactionResponse {
   fees: string;
 
   hex: string;
+}
+
+
+// RAW MEMPOOL JSON RESPONSE
+
+export interface MempoolTransactionDetails {
+  size: number;
+  fee: number;
+  modifiedfee: number;
+  time: number;
+  height: number;
+  startingpriority: number;
+  currentpriority: number;
+  descendantcount: number;
+  descendantsize: number;
+  descendantfees: number;
+  ancestorcount: number;
+  ancestorsize: number;
+  ancestorfees: number;
+  depends: string[];
+}
+
+export interface RawMempoolResponse {
+  [txid: string]: MempoolTransactionDetails;
 }
