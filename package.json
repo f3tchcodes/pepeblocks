@@ -1,5 +1,5 @@
 {
-  "name": "pepeblocks",
+  "name": "@f3tchcodes/pepeblocks",
   "version": "1.2.2",
   "description": "JavaScript and TypeScript SDK for interacting with the Pepecoin (PEP) blockchain through the Pepeblocks API.",
   "main": "dist/index.js",
