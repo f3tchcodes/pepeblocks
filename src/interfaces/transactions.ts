@@ -1,3 +1,5 @@
+// Raw JSON transaction response
+
 export interface TxScriptPubKey {
   asm: string;
   hex: string;
@@ -24,7 +26,7 @@ export interface TxVin {
 }
 
 // putting everything together
-export interface JSONTransactionResponse {
+export interface RawJSONTransactionResponse {
   hex: string;
   txid: string;
   hash: string;
@@ -38,4 +40,45 @@ export interface JSONTransactionResponse {
   confirmations: number;
   time: number;
   blocktime: number;
+}
+
+
+// Blockbook's transaction response
+export interface TransactionVin {
+  n: number;
+  isAddress: boolean;
+  coinbase?: string;
+  txid?: string;
+  vout?: number;
+  addresses?: string[];
+}
+
+export interface TransactionVout {
+  value: string;
+  n: number;
+  spent?: boolean;
+  hex: string;
+  addresses: string[];
+  isAddress: boolean;
+}
+
+export interface TransactionResponse {
+  txid: string;
+  version: number;
+
+  vin: TransactionVin[];
+  vout: TransactionVout[];
+
+  blockHash: string;
+  blockHeight: number;
+  confirmations: number;
+  blockTime: number;
+
+  size: number;
+
+  value: string;
+  valueIn: string;
+  fees: string;
+
+  hex: string;
 }
