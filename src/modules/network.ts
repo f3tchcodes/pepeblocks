@@ -44,4 +44,23 @@ export class PepeNetwork {
 
         return hashrate;
     }
+
+    /**
+     * Fetches the number of connections to other nodes.
+     * @returns Number of connections to other nodes.
+     */
+    public async connections(): Promise<number> {
+        const res = await this.client._getReq(`/api/getconnectioncount`);
+
+        // convert text into number
+        const text = await res.text();
+        const connectionsCount = Number(text);
+
+        // if it's not a number, throw error
+        if (text === "" || Number.isNaN(connectionsCount)) {
+            throw new Error(`Invalid hashrate received: ${text}`);
+        }
+
+        return connectionsCount;
+    }
 }
