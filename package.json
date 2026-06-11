@@ -16,7 +16,8 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "run": "tsc && node dist/index.js"
+    "run": "tsc && node dist/index.js",
+    "publish:all": "npm publish --access public && npm publish --registry=https://npm.pkg.github.com --access public"
   },
   "keywords": [
     "pepecoin",
