@@ -1,4 +1,5 @@
 import { type PepeClient } from "#client/pepeClient";
+import { type SystemStatusResponse } from "#interfaces/network";
 
 export class PepeNetwork {
     private client: PepeClient;
@@ -29,5 +30,16 @@ export class PepeNetwork {
      */
     public async connections(): Promise<number> {
         return await this.client._getReqNumber(`/api/getconnectioncount`);
+    }
+
+    /**
+     * Fetches the system status of the Blockbook indexer and node backend.
+     * @returns Object containing system status data.
+     */
+    public async status(): Promise<SystemStatusResponse> {
+        const res = await this.client._getReq(`/api/status`);
+        const parsedJson = (await res.json()) as SystemStatusResponse;
+
+        return parsedJson;
     }
 }
