@@ -1,3 +1,5 @@
+// ADDRESS INFORMATION
+
 export interface AddressProfileResponse {
     page: number;
     totalPages: number;
@@ -11,3 +13,16 @@ export interface AddressProfileResponse {
     txs: number;
     txids: string[];
 }
+
+
+// UTXOS OF AN ADDRESS
+export interface UTXO {
+  txid: string;
+  vout: number;
+  value: string;
+  height: number;
+  confirmations: number;
+  coinbase?: boolean;
+}
+
+export type AddressUTXOsResponse = UTXO[];
