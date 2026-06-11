@@ -16,6 +16,7 @@ export interface AddressProfileResponse {
 
 
 // UTXOS OF AN ADDRESS
+
 export interface UTXO {
   txid: string;
   vout: number;
@@ -26,3 +27,16 @@ export interface UTXO {
 }
 
 export type AddressUTXOsResponse = UTXO[];
+
+
+// BALANCE HISTORY OF AN ADDRESS
+
+export interface BalanceHistoryEntry {
+  time: number;
+  txs: number;
+  received: string;
+  sent: string;
+  sentToSelf: string;
+}
+
+export type AddressBalanceHistoryResponse = BalanceHistoryEntry[];
