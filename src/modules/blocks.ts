@@ -20,7 +20,7 @@ export class PepeBlocks {
         const count = Number(text);
 
         // if it's not a number, throw error
-        if (Number.isNaN(count)) {
+        if (text === "" ||Number.isNaN(count)) {
             throw new Error(`Invalid block count received: ${text}`);
         }
 
