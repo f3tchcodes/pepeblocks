@@ -39,7 +39,7 @@ export class PepeNetwork {
 
         // if it's not a number, throw error
         if (text === "" || Number.isNaN(hashrate)) {
-            throw new Error(`Invalid hash rate received: ${text}`);
+            throw new Error(`Invalid hashrate received: ${text}`);
         }
 
         return hashrate;
