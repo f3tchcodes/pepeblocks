@@ -44,7 +44,6 @@ export type AddressBalanceHistoryResponse = BalanceHistoryEntry[];
 
 // LIST OF ALL ADDRESSES
 
-// Enforce numbers 1 through 100 via a generated type helper
 export type MaxLimit100 = 1 | 2 | 3 | 4 | 5 | 10 | 20 | 25 | 50 | 100 | number & {};
 
 export interface AddressListOptions {
@@ -76,4 +75,10 @@ export interface AddressListPagination {
 export interface AddressListResponse {
   addresses: AddressListItem[];
   paging: AddressListPagination;
+}
+
+// QR IMAGE OPTIONS
+
+export interface QROptions {
+    raw?: boolean;
 }

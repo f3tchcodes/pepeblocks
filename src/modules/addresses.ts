@@ -4,7 +4,8 @@ import {
     type AddressUTXOsResponse,
     type AddressBalanceHistoryResponse,
     type AddressListResponse,
-    type AddressListOptions
+    type AddressListOptions,
+    type QROptions
 } from "#interfaces/addresses";
 
 export class PepeAddresses {
@@ -42,6 +43,26 @@ export class PepeAddresses {
     public async balancehistory(address: string): Promise<AddressBalanceHistoryResponse> {
         const res = await this.client._getReq(`/api/v2/balancehistory/${address}`);
         return (await res.json()) as AddressBalanceHistoryResponse;
+    }
+
+    /**
+     * Generates a QR code image URL or fetches its raw image data for the wallet address.
+     * @param address The address of a wallet.
+     * @param options Configure raw or link.
+     * @example
+     * const url = await pep.addresses.qr("Pps2nuE...");
+     * const rawPng = await pep.addresses.qr("Pps2nuE...", { raw: true });
+     */
+    public async qr(address: string, options: QROptions = {}): Promise<string> {
+        const raw = options.raw ?? false;
+        const query = `/qr/${address}`;
+
+        if (raw) {
+            const res = await this.client._getReq(query);
+            return await res.text();
+        } else {
+            return `${this.client.baseUrl}${query}`
+        }
     }
 
     /**
