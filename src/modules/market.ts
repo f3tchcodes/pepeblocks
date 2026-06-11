@@ -22,4 +22,12 @@ export class PepeMarket {
     public async price(): Promise<number> {
         return await this.client._getReqNumber(`/ext/getcurrentprice`);
     }
+
+    /**
+     * Fetches the current volume of the pepecoin.
+     * @returns Current volume number.
+     */
+    public async currentvolume(): Promise<number> {
+        return await this.client._getReqNumber(`/ext/getcurrentvolume`);
+    }
 }
