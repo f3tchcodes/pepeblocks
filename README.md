@@ -6,6 +6,7 @@ JavaScript and TypeScript SDK for interacting with the Pepecoin (PEP) blockchain
 * [Usage](#usage)
 * [SDK Modules Overview](#sdk-modules-overview)
 * [Documentation](#documentation)
+* [Contribute](CONTRIBUTING.md)
 * [License](#license)
 
 ---
@@ -53,8 +54,10 @@ The complete SDK documentation containing all parameters, return types, and oper
 ---
 
 ## License
-This SDK is licensed under [MIT](https://github.com/f3tchcodes/pepeblocks/blob/main/LICENSE).
+This SDK is licensed under [MIT](LICENSE).
 
 
+## Developer
+Hi, this is f3tch! This was my first time writing a 
 
 The complete raw API documentation for Pepeblocks can be found at [https://pepeblocks.com/api](https://pepeblocks.com/api).
