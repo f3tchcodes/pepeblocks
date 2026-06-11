@@ -4,7 +4,7 @@ import { PepeBlocks } from "#modules/blocks";
 import { PepeTransactions } from "#modules/transactions";
 import { PepeNetwork } from "#modules/network";
 import { PepeAddresses } from "#modules/addresses";
-import { PepeMarket } from "#modules/Market";
+import { PepeMarket } from "#modules/market";
 
 import { getReq, getReqNumber } from "#utils/requests"; 
 
