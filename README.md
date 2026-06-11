@@ -14,10 +14,10 @@ $ npm install pepeblocks
 ```
 import { Pepeblocks } from "pepeblocks";
 
-const pepe = new Pepeblocks();
+const pep = new Pepeblocks();
 
 // Get total number of blocks
-console.log(await pepe.blocks.count())
+console.log(await pep.blocks.count())
 ```
 
 The complete API documentation for Pepeblocks can be found at [https://pepeblocks.com/api](https://pepeblocks.com/api).
