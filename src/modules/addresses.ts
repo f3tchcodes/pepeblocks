@@ -37,7 +37,7 @@ export class PepeAddresses {
      * @param address The address of a wallet.
      * @returns An array of all the balance changes of the wallet.
      */
-    public async balancehistory(address: string): Promise<AddressBalanceHistoryResponse> {
+    public async balanceHistory(address: string): Promise<AddressBalanceHistoryResponse> {
         const res = await this.client._getReq(`/api/v2/balancehistory/${address}`);
         return (await res.json()) as AddressBalanceHistoryResponse;
     }
