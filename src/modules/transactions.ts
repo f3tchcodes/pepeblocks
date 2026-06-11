@@ -25,7 +25,7 @@ export class PepeTransactions {
      * @param txid The transaction ID string.
      * @returns Fully decoded transaction information in JSON.
      */
-    public async getRawDecoded(txid: string): Promise<RawJSONTransactionResponse> {
+    public async getDecoded(txid: string): Promise<RawJSONTransactionResponse> {
         const res = await this.client._getReq(`/api/getrawtransaction?txid=${txid}&decrypt=1`);
         const parsedJson = (await res.json()) as RawJSONTransactionResponse;
 
