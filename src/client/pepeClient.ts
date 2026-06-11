@@ -4,6 +4,7 @@ import { PepeBlocks } from "#modules/blocks";
 import { PepeTransactions } from "#modules/transactions";
 import { PepeNetwork } from "#modules/network";
 import { PepeAddresses } from "#modules/addresses";
+import { PepeMarket } from "#modules/Market";
 
 import { getReq, getReqNumber } from "#utils/requests"; 
 
@@ -35,6 +36,11 @@ export class PepeClient {
      * General methods for addresses of the pepecoin blockchain.
      */
     public addresses: PepeAddresses;
+
+    /**
+     * General methods for market of the pepecoin blockchain.
+     */
+    public market: PepeMarket;
     
     
     constructor(options: ClientOptions = {}) {
@@ -50,6 +56,7 @@ export class PepeClient {
         this.transactions = new PepeTransactions(this);
         this.network = new PepeNetwork(this);
         this.addresses = new PepeAddresses(this);
+        this.market = new PepeMarket(this);
     }
 
     /** 
