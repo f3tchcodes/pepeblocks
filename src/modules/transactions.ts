@@ -40,6 +40,6 @@ export class PepeTransactions {
     public async getRaw(txid: string): Promise<string> {
         const res = await this.client._getReq(`/api/getrawtransaction?txid=${txid}&decrypt=0`);
 
-        return await res.json();
+        return await res.text();
     }
 }
